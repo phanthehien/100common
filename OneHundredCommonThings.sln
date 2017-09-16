@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneHundredCommonThings.Droid", "XamarinFormsStarterKit\XamarinFormsStarterKit.Droid\OneHundredCommonThings.Droid.csproj", "{767B7E68-6A87-41AE-8568-35CA66191EB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneHundredCommonThings.Droid", "100Common\100Common.Droid\OneHundredCommonThings.Droid.csproj", "{767B7E68-6A87-41AE-8568-35CA66191EB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneHundredCommonThings.iOS", "XamarinFormsStarterKit\XamarinFormsStarterKit.iOS\OneHundredCommonThings.iOS.csproj", "{DE45B72C-7451-421E-BD89-DD6BE6054970}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneHundredCommonThings.iOS", "100Common\100Common.iOS\OneHundredCommonThings.iOS.csproj", "{DE45B72C-7451-421E-BD89-DD6BE6054970}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneHundredCommonThings", "XamarinFormsStarterKit\XamarinFormsStarterKit\OneHundredCommonThings.csproj", "{2AE49240-F391-4A1D-9FB9-2EDCA4C8B707}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneHundredCommonThings", "100Common\100Common\OneHundredCommonThings.csproj", "{2AE49240-F391-4A1D-9FB9-2EDCA4C8B707}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
