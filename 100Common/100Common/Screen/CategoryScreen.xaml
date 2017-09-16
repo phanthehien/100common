@@ -21,7 +21,7 @@
                 <Label Text="{Binding CategoryId}" />
                 <Label Text="{Binding CategoryName}" />
                 <Label Text="{Binding Description}"/>
-                <view:TopicsView />
+                <view:TopicsView TopicUrl="http://www.mocky.io/v2/59bd36dd3c0000c701529f91"/>
               </StackLayout>
           </ViewCell>
         </DataTemplate>

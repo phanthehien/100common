@@ -65,6 +65,7 @@
     <Compile Include="View\TopicsView.xaml.cs">
       <DependentUpon>TopicsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\TopicViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
