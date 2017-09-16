@@ -29,11 +29,11 @@ namespace OneHundredCommonThings.ViewModel
 			}
 		}
 
-        private DataService<T> dataService;
+        private BaseDataService<T> dataService;
 
-        public BaseServiceVM()
+        public BaseServiceVM(BaseDataService<T> dataService)
 		{
-            dataService = new DataService<T>();
+            this.dataService = dataService;
 		}
 
         public ObservableCollection<T> ModelCollection { get; set; }

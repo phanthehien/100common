@@ -48,13 +48,14 @@
     <Compile Include="WebContentPage.xaml.cs">
       <DependentUpon>WebContentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Service\DataService.cs" />
+    <Compile Include="Service\BaseDataService.cs" />
     <Compile Include="Screen\EnglishScreen.xaml.cs">
       <DependentUpon>EnglishScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\EnglishViewModel.cs" />
     <Compile Include="Model\AppData.cs" />
     <Compile Include="ViewModel\BaseServiceVM.cs" />
+    <Compile Include="Service\EnglishDataService.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">

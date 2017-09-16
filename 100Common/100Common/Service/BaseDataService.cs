@@ -19,15 +19,17 @@ using OneHundredCommonThings.Model;
 //
 namespace OneHundredCommonThings
 {
-    public class DataService<T> where T : BaseModel, new() {
+    public class BaseDataService<T> where T : BaseModel, new() {
 
         private CancellationToken token;
 		private SQLiteConnection database;
 		private static object collisionLock = new object();
+        private string _baseServiceUrl = string.Empty;
+        private string _propertyName = string.Empty;
 
-        protected const string _baseServiceUrl = "http://www.mocky.io/v2/59bd2b743c00006201529f83";
-
-        public DataService() {
+        protected BaseDataService(string baseServiceUrl, string propertyName) {
+            this._baseServiceUrl = baseServiceUrl;
+            this._propertyName = propertyName;
 			this.token = new CancellationToken();
 			database = DependencyService.Get<IDatabaseConnection>().DbConnection();
 			database.CreateTable<T>();
@@ -84,10 +86,10 @@ namespace OneHundredCommonThings
 			try
 			{
 				var client = new HttpClient();
-				var data = await client.GetAsync(new Uri(_baseServiceUrl), token);
+                var data = await client.GetAsync(new Uri(_baseServiceUrl), token);
 				var strData = await data.Content.ReadAsStringAsync();
 				var appData = AppData.FromJson(strData);
-                var Ts = GetPropValue(appData, "CommonEnglishSentence");
+                var Ts = GetPropValue(appData, _propertyName);
                 return Ts;
 			}
 			catch (OperationCanceledException)
