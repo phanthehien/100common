@@ -17,7 +17,7 @@ namespace OneHundredCommonThings
             InitializeComponent();
             CrossConnectivity.Current.ConnectivityChanged += (sender, e) => { IsConnected = e.IsConnected; };
 
-            MainPage = new NavigationPage(new Screen.EnglishScreen());
+            MainPage = new NavigationPage(new Screen.CategoryScreen());
         }
 
 

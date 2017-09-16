@@ -6,23 +6,20 @@ using Xamarin.Forms;
 
 namespace OneHundredCommonThings.Screen
 {
-    public partial class EnglishScreen : ContentPage
+    public partial class CategoryScreen : ContentPage
     {
-        private EnglishViewModel englishServiceVM;
+		private CategoryViewModel englishServiceVM;
 
-		public EnglishScreen()
+		public CategoryScreen()
 		{
 			InitializeComponent();
-			this.englishServiceVM = new EnglishViewModel();
+			this.englishServiceVM = new CategoryViewModel();
 		}
 
 		protected async override void OnAppearing()
 		{
 			base.OnAppearing();
-            NavigationPage.SetHasNavigationBar(this, false);
-
-			//this.BusyIndicator.IsVisible = true;
-			//this.BusyIndicator.IsRunning = true;
+			NavigationPage.SetHasNavigationBar(this, false);
 			try
 			{
 				await this.englishServiceVM.PopulateDataAsync(true);
@@ -40,19 +37,16 @@ namespace OneHundredCommonThings.Screen
 			}
 			finally
 			{
-				//this.BusyIndicator.IsVisible = false;
-				//this.BusyIndicator.IsRunning = false;
+
 			}
 		}
 
 		private async Task LoadDataAsync()
 		{
-			//this.BusyIndicator.IsVisible = true;
-			//this.BusyIndicator.IsRunning = true;
 			try
 			{
-                await this.englishServiceVM.PopulateDataAsync(true);
-                this.BindingContext = this.englishServiceVM.ModelCollection;
+				await this.englishServiceVM.PopulateDataAsync(true);
+				this.BindingContext = this.englishServiceVM.ModelCollection;
 			}
 			catch (InvalidOperationException)
 			{
@@ -66,8 +60,7 @@ namespace OneHundredCommonThings.Screen
 			}
 			finally
 			{
-				//this.BusyIndicator.IsVisible = false;
-				//this.BusyIndicator.IsRunning = false;
+
 			}
 		}
 

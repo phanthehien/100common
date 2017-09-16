@@ -56,6 +56,11 @@
     <Compile Include="Model\AppData.cs" />
     <Compile Include="ViewModel\BaseServiceVM.cs" />
     <Compile Include="Service\EnglishDataService.cs" />
+    <Compile Include="Service\CategoryDataService.cs" />
+    <Compile Include="ViewModel\CategoryViewModel.cs" />
+    <Compile Include="Screen\CategoryScreen.xaml.cs">
+      <DependentUpon>CategoryScreen.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
@@ -67,6 +72,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Screen\EnglishScreen.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\CategoryScreen.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
