@@ -21,8 +21,6 @@ namespace OneHundredCommonThings.Screen
 			base.OnAppearing();
             NavigationPage.SetHasNavigationBar(this, false);
 
-			//this.BusyIndicator.IsVisible = true;
-			//this.BusyIndicator.IsRunning = true;
 			try
 			{
 				await this.englishServiceVM.PopulateDataAsync(true);
@@ -40,15 +38,11 @@ namespace OneHundredCommonThings.Screen
 			}
 			finally
 			{
-				//this.BusyIndicator.IsVisible = false;
-				//this.BusyIndicator.IsRunning = false;
 			}
 		}
 
 		private async Task LoadDataAsync()
 		{
-			//this.BusyIndicator.IsVisible = true;
-			//this.BusyIndicator.IsRunning = true;
 			try
 			{
                 await this.englishServiceVM.PopulateDataAsync(true);
@@ -66,8 +60,7 @@ namespace OneHundredCommonThings.Screen
 			}
 			finally
 			{
-				//this.BusyIndicator.IsVisible = false;
-				//this.BusyIndicator.IsRunning = false;
+				
 			}
 		}
 

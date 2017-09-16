@@ -8,5 +8,9 @@ namespace OneHundredCommonThings.ViewModel
         public CategoryViewModel() : base(new CategoryDataService()) {
             
         }
+
+        public void LoadTopic() {
+            
+        }
 	}
 }

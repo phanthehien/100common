@@ -8,12 +8,12 @@ namespace OneHundredCommonThings.Screen
 {
     public partial class CategoryScreen : ContentPage
     {
-		private CategoryViewModel englishServiceVM;
+        private CategoryViewModel categoryVM;
 
 		public CategoryScreen()
 		{
 			InitializeComponent();
-			this.englishServiceVM = new CategoryViewModel();
+			this.categoryVM = new CategoryViewModel();
 		}
 
 		protected async override void OnAppearing()
@@ -22,8 +22,8 @@ namespace OneHundredCommonThings.Screen
 			NavigationPage.SetHasNavigationBar(this, false);
 			try
 			{
-				await this.englishServiceVM.PopulateDataAsync(true);
-				this.BindingContext = this.englishServiceVM.ModelCollection;
+				await this.categoryVM.PopulateDataAsync(true);
+				this.BindingContext = this.categoryVM.ModelCollection;
 			}
 			catch (InvalidOperationException ex)
 			{
@@ -45,8 +45,8 @@ namespace OneHundredCommonThings.Screen
 		{
 			try
 			{
-				await this.englishServiceVM.PopulateDataAsync(true);
-				this.BindingContext = this.englishServiceVM.ModelCollection;
+				await this.categoryVM.PopulateDataAsync(true);
+				this.BindingContext = this.categoryVM.ModelCollection;
 			}
 			catch (InvalidOperationException)
 			{
