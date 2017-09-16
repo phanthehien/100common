@@ -6,11 +6,11 @@ using Xamarin.Forms;
 
 namespace OneHundredCommonThings.Screen
 {
-    public partial class English : ContentPage
+    public partial class EnglishScreen : ContentPage
     {
         private EnglishViewModel englishServiceVM;
 
-		public English()
+		public EnglishScreen()
 		{
 			InitializeComponent();
 			this.englishServiceVM = new EnglishViewModel();
@@ -19,6 +19,8 @@ namespace OneHundredCommonThings.Screen
 		protected async override void OnAppearing()
 		{
 			base.OnAppearing();
+            NavigationPage.SetHasNavigationBar(this, false);
+
 			this.BusyIndicator.IsVisible = true;
 			this.BusyIndicator.IsRunning = true;
 			try

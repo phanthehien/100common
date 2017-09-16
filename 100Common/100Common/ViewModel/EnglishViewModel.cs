@@ -15,7 +15,7 @@ using OneHundredCommonThings.Model;
 
 namespace OneHundredCommonThings.ViewModel
 {
-    public class EnglishViewModel : BaseServiceVM<EnglishSentence>
+    public class EnglishViewModel : BaseServiceVM<CommonEnglishSentence>
 	{
         
 	}

@@ -25,7 +25,7 @@ namespace OneHundredCommonThings
 		private SQLiteConnection database;
 		private static object collisionLock = new object();
 
-        protected const string _baseServiceUrl = "http://www.mocky.io/v2/59bcc0fe3c00005400529f25";
+        protected const string _baseServiceUrl = "http://www.mocky.io/v2/59bd2b743c00006201529f83";
 
         public DataService() {
 			this.token = new CancellationToken();
@@ -87,7 +87,7 @@ namespace OneHundredCommonThings
 				var data = await client.GetAsync(new Uri(_baseServiceUrl), token);
 				var strData = await data.Content.ReadAsStringAsync();
 				var appData = AppData.FromJson(strData);
-                var Ts = GetPropValue(appData, "EnglishSentence");
+                var Ts = GetPropValue(appData, "CommonEnglishSentence");
                 return Ts;
 			}
 			catch (OperationCanceledException)
