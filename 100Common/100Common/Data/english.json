@@ -1,0 +1,69 @@
+{
+	"englishSentence": 
+	[
+		{
+			"id": 1,
+			"sentence": "what's up?",
+			"meaning": "Có chuyện gì vậy?"
+		},
+		{
+			"id": 2,
+			"sentence": "How's it going?",
+			"meaning": "Dạo này sao rùi?"
+		}
+		,
+		{
+			"id": 3,
+			"sentence": "What have been doing?",
+			"meaning": "Dạo này đang làm gì?"
+		}
+		,
+		{
+			"id": 4,
+			"sentence": "Nothing much",
+			"meaning": "Không có gì mới cả"
+		}
+		,
+		{
+			"id": 5,
+			"sentence": "What's on your mind?",
+			"meaning": "Bạn đang lo lắng gì vậy?"
+		}
+		,
+		{
+			"id": 6,
+			"sentence": "I was just thinking",
+			"meaning": "Tôi chỉ nghĩ linh tinh chút thôi"
+		}
+		,
+		{
+			"id": 7,
+			"sentence": "I was just daydreaming",
+			"meaning": "Tôi chỉ đãng trí chút thôi"
+		}
+		,
+		{
+			"id": 8,
+			"sentence": "It's none of your business",
+			"meaning": "Không phải chuyện của bạn?"
+		}
+		,
+		{
+			"id": 9,
+			"sentence": "Is that so?",
+			"meaning": "Có chuyện gì vậy?"
+		}
+		,
+		{
+			"id": 10,
+			"sentence": "How come?",
+			"meaning": "Làm thế nào vậy?"
+		}
+		,
+		{
+			"id": 11,
+			"sentence": "Absolutely!",
+			"meaning": "Chắc chắn rùi!"
+		}
+	]
+}
