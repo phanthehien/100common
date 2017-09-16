@@ -48,26 +48,28 @@ namespace OneHundredCommonThings.ViewModel
 				return;
 			}
 
+            IEnumerable<T> onlineData = null;
 			if (refresh == true && App.IsConnected)
 			{
 				try
 				{
 					IsBusy = true;
-                    var onlineData = await dataService.PopulateDataOnlineAsync();
+                    onlineData = await dataService.PopulateDataOnlineAsync();
                     this.ModelCollection = new ObservableCollection<T>(onlineData);
+                    return;
 				}
                 catch(Exception)
 				{
+                    return;
 				}
 				finally
 				{
 					IsBusy = false;
 				}
-
-                return;
 			}
 
-            await dataService.PopulateDataOfflineAsync();
+            onlineData = await dataService.PopulateDataOfflineAsync();
+			this.ModelCollection = new ObservableCollection<T>(onlineData);
 		}
     }
 }

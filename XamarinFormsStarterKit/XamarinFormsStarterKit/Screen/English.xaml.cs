@@ -23,7 +23,8 @@ namespace OneHundredCommonThings.Screen
 			this.BusyIndicator.IsRunning = true;
 			try
 			{
-                this.BindingContext = this.englishServiceVM.ModelCollection;
+				await this.englishServiceVM.PopulateDataAsync(true);
+				this.BindingContext = this.englishServiceVM.ModelCollection;
 			}
 			catch (InvalidOperationException ex)
 			{
