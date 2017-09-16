@@ -17,3 +17,5 @@ This app is just used to demontrate these techology:
 7. how to implement a navigation bar with buttons
 
 This can be improved in a number of ways, please fork and submit pull requests.
+
+Any concern? Just feel free to drop an email to phanthehien@gmail.com .
