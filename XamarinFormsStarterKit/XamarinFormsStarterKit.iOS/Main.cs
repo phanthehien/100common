@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace XamarinFormsStarterKit.iOS
+namespace OneHundredCommonThings.iOS
 {
     public class Application
     {

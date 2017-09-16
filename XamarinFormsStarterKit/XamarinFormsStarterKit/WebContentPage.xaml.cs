@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace XamarinFormsStarterKit
+namespace OneHundredCommonThings
 {
     public partial class WebContentPage : ContentPage
     {

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Xamarin.Forms;
 
-namespace XamarinFormsStarterKit
+namespace OneHundredCommonThings
 {
     public class ItemViewModel: INotifyPropertyChanged
     {
@@ -64,7 +64,7 @@ namespace XamarinFormsStarterKit
             {
                 throw;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

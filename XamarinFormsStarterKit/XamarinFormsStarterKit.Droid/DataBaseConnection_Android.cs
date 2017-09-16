@@ -1,7 +1,7 @@
-using SQLite;
+﻿using SQLite;
 using LocalDataAccess.Droid;
 using System.IO;
-using XamarinFormsStarterKit;
+using OneHundredCommonThings;
 
 [assembly: Xamarin.Forms.Dependency(typeof(DatabaseConnection_Android))]
 namespace LocalDataAccess.Droid

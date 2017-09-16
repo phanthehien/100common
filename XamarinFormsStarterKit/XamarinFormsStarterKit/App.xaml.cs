@@ -6,7 +6,7 @@ using System.Text;
 
 using Xamarin.Forms;
 
-namespace XamarinFormsStarterKit
+namespace OneHundredCommonThings
 {
     public partial class App : Application
     {
@@ -17,7 +17,7 @@ namespace XamarinFormsStarterKit
             InitializeComponent();
             CrossConnectivity.Current.ConnectivityChanged += (sender, e) => { IsConnected = e.IsConnected; };
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new Screen.English());
         }
 
 

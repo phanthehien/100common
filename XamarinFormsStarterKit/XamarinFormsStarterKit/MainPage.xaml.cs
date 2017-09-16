@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace XamarinFormsStarterKit
+namespace OneHundredCommonThings
 {
     public partial class MainPage : ContentPage
     {
@@ -27,10 +27,9 @@ namespace XamarinFormsStarterKit
             try
             {
                 await this.itemsService.PopulateDataAsync(false);
-                // Data-binding:
                 this.BindingContext = this.itemsService.Items;
             }
-            catch(InvalidOperationException ex)
+            catch(InvalidOperationException)
             {
                 await DisplayAlert("Error", "Check your network connection.", "OK");
                 return;
@@ -56,7 +55,7 @@ namespace XamarinFormsStarterKit
                 await this.itemsService.PopulateDataAsync(true);
                 this.BindingContext = this.itemsService.Items;
             }
-            catch (InvalidOperationException ex)
+            catch (InvalidOperationException)
             {
                 await DisplayAlert("Error", "Check your network connection.", "OK");
                 return;
@@ -88,7 +87,9 @@ namespace XamarinFormsStarterKit
             var selected = e.Item as Item;
 
             if (selected != null)
+            {
                 await Navigation.PushAsync(new WebContentPage(selected.Link));
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using SQLite;
 
-namespace XamarinFormsStarterKit
+namespace OneHundredCommonThings
 {
     // Decorate class and members with SQLite attributes for table definition and data validation
 
