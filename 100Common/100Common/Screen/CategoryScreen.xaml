@@ -24,7 +24,7 @@
           <ViewCell>
               <StackLayout Padding="5" BackgroundColor="Silver">
                 <Label Text="{Binding Description, StringFormat= '{0}'}" FontAttributes="Bold" HeightRequest="25" />
-                <view:TopicsView TopicUrl="http://www.mocky.io/v2/59bdf5ed3c0000b606529ff2"/>
+                <view:TopicsView TopicUrl="https://onehundredcommon.herokuapp.com/api/topic"/>
               </StackLayout>
           </ViewCell>
         </DataTemplate>
