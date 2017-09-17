@@ -1,32 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using OneHundredCommonThings.Model;
 using OneHundredCommonThings.ViewModel;
 using Xamarin.Forms;
 
 namespace OneHundredCommonThings.Screen
 {
-    public partial class CategoryScreen : ContentPage
+    public partial class TopicScreen : ContentPage
     {
-        private CategoryViewModel categoryVM;
+        private TopicViewModel topicVM;
 
-		public CategoryScreen()
+		public TopicScreen()
 		{
 			InitializeComponent();
-			this.categoryVM = new CategoryViewModel();
-            Title = "Category";
+            this.topicVM = new TopicViewModel();
+			Title = "Topic";
 		}
 
 		protected async override void OnAppearing()
 		{
-			base.OnAppearing();
-
-			//NavigationPage.SetHasNavigationBar(this, false);
+            base.OnAppearing();
 			try
 			{
-				await this.categoryVM.PopulateDataAsync(true);
-				this.BindingContext = this.categoryVM.ModelCollection;
+				await this.topicVM.PopulateDataAsync(true);
+				this.BindingContext = this.topicVM.ModelCollection;
 			}
 			catch (InvalidOperationException ex)
 			{
@@ -40,7 +37,6 @@ namespace OneHundredCommonThings.Screen
 			}
 			finally
 			{
-
 			}
 		}
 
@@ -48,8 +44,8 @@ namespace OneHundredCommonThings.Screen
 		{
 			try
 			{
-				await this.categoryVM.PopulateDataAsync(true);
-				this.BindingContext = this.categoryVM.ModelCollection;
+                await this.topicVM.PopulateDataAsync(true);
+                this.BindingContext = this.topicVM.ModelCollection;
 			}
 			catch (InvalidOperationException)
 			{
@@ -63,7 +59,7 @@ namespace OneHundredCommonThings.Screen
 			}
 			finally
 			{
-
+				
 			}
 		}
 
@@ -79,12 +75,10 @@ namespace OneHundredCommonThings.Screen
 
 		private async void RssView_ItemTapped(object sender, ItemTappedEventArgs e)
 		{
-			var selected = e.Item as Category;
+			var selected = e.Item as Item;
 
-            if (selected != null)
-            {
-                await Navigation.PushAsync(new TopicScreen());
-            }
+			if (selected != null)
+				await Navigation.PushAsync(new WebContentPage(selected.Link));
 		}
     }
 }

@@ -14,6 +14,7 @@ namespace OneHundredCommonThings.Screen
 		{
 			InitializeComponent();
 			this.englishServiceVM = new EnglishViewModel();
+            Title = "Detail";
 		}
 
 		protected async override void OnAppearing()

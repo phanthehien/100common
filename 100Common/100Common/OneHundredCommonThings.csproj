@@ -66,6 +66,9 @@
       <DependentUpon>TopicsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\TopicViewModel.cs" />
+    <Compile Include="Screen\TopicScreen.xaml.cs">
+      <DependentUpon>TopicScreen.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
@@ -83,6 +86,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="View\TopicsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screen\TopicScreen.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
