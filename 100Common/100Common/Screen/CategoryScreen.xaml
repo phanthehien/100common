@@ -5,26 +5,26 @@
     xmlns:view="clr-namespace: OneHundredCommonThings.View;assembly=OneHundredCommonThings"
     x:Class="OneHundredCommonThings.Screen.CategoryScreen">
   <ContentPage.Padding>
-    <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+    <OnPlatform x:TypeArguments="Thickness" iOS="0, 0, 0, 0" />
   </ContentPage.Padding>
   
   <StackLayout>
     <ListView 
             VerticalOptions="StartAndExpand"
+            SeparatorVisibility="None"
             x:Name="RssView" 
             ItemsSource="{Binding}"
             IsPullToRefreshEnabled="True"
             Refreshing="RssView_Refreshing"
             IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-            ItemTapped="RssView_ItemTapped" ListView.RowHeight="100">
+            ItemTapped="RssView_ItemTapped" 
+            ListView.RowHeight="160">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-              <StackLayout Padding="5">
-                <Label Text="{Binding CategoryId}" />
-                <Label Text="{Binding CategoryName}" />
-                <Label Text="{Binding Description}"/>
-                <view:TopicsView TopicUrl="http://www.mocky.io/v2/59bd36dd3c0000c701529f91"/>
+              <StackLayout Padding="5" BackgroundColor="Silver">
+                <Label Text="{Binding Description, StringFormat= '{0}'}" FontAttributes="Bold" HeightRequest="25" />
+                <view:TopicsView TopicUrl="http://www.mocky.io/v2/59bdf5ed3c0000b606529ff2"/>
               </StackLayout>
           </ViewCell>
         </DataTemplate>
@@ -32,7 +32,7 @@
     </ListView>
   </StackLayout>
 
-  <ContentPage.ToolbarItems>
+  <!--<ContentPage.ToolbarItems>
     <ToolbarItem Name="RefreshButton" Clicked="RefreshButton_Clicked" Text="Refresh" Order="Secondary" Priority="0"/>
-  </ContentPage.ToolbarItems>
+  </ContentPage.ToolbarItems>-->
 </ContentPage>

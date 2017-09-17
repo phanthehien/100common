@@ -7,7 +7,7 @@ namespace OneHundredCommonThings.Service
     {
         public TopicDataService(string url = null, string propertyName = null) 
             : base(
-                url ?? "http://www.mocky.io/v2/59bd36dd3c0000c701529f91", 
+                url ?? "http://www.mocky.io/v2/59bdf5ed3c0000b606529ff2", 
                 propertyName ?? "Topic"
             )
         {

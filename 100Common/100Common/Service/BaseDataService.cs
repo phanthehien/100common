@@ -71,11 +71,12 @@ namespace OneHundredCommonThings
 				{
 					if (feedT.Id != 0)
 					{
-						database.Update(feedT);
+                        //TODO: so far doesn't need to update
+                        //database.Update(feedT);
 					}
 					else
 					{
-						database.Insert(feedT);
+                        //database.Insert(feedT);
 					}
 				}
 			}

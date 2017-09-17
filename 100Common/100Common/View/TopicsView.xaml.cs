@@ -41,14 +41,39 @@ namespace OneHundredCommonThings.View
 			var scrollableContent = new StackLayout()
 			{
 				Orientation = StackOrientation.Horizontal,
-				HorizontalOptions = LayoutOptions.Fill
+                HorizontalOptions = LayoutOptions.StartAndExpand
 			};
 
 			foreach (var topic in this.topicVM.ModelCollection)
 			{
-				var label = new Label() { HeightRequest = 30, BackgroundColor = Color.Green };
+				var label = new Label() { 
+                    BackgroundColor = Color.Transparent,
+                    VerticalOptions = LayoutOptions.CenterAndExpand,
+                    HorizontalOptions = LayoutOptions.CenterAndExpand,
+                    LineBreakMode = LineBreakMode.WordWrap,
+                };
                 label.Text = topic.Description;
-				scrollableContent.Children.Add(label);
+                var boxView = new RelativeLayout()
+                {
+                    BackgroundColor=Color.Gray,
+                    WidthRequest = 120,
+                    HeightRequest = 120,
+					VerticalOptions = LayoutOptions.CenterAndExpand,
+					HorizontalOptions = LayoutOptions.CenterAndExpand,
+                };
+
+                boxView.Children.Add(
+                    label, 
+                    xConstraint: Constraint.RelativeToParent((parent) =>
+                    {
+                        return ((parent.Width - label.Width) / 2);
+                    }),
+                    yConstraint: Constraint.RelativeToParent((parent) =>
+                    {
+                        return ((parent.Height - label.Height) / 2);
+                    })
+                );
+                scrollableContent.Children.Add(boxView);
 			}
 
 			this.Content = new ScrollView()
@@ -59,11 +84,11 @@ namespace OneHundredCommonThings.View
 			};
 		}
 
-		private static void topicUrlPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+		private static async void topicUrlPropertyChanged(BindableObject bindable, object oldValue, object newValue)
 		{
 			var control = (TopicsView)bindable;
             control.TopicUrl = newValue.ToString();
-			control.LoadControl();
+			await control.LoadControl();
 		}
     }
 }

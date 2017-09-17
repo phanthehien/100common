@@ -4,8 +4,8 @@
        <ActivityIndicator 
                 HorizontalOptions="Center" 
                 VerticalOptions="Center"
-            WidthRequest="50"
-            HeightRequest="50"
+                WidthRequest="50"
+                HeightRequest="50"
                 IsRunning="true"
             />
     </ContentView.Content>

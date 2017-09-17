@@ -15,11 +15,13 @@ namespace OneHundredCommonThings.Screen
 		{
 			InitializeComponent();
 			this.categoryVM = new CategoryViewModel();
+            Title = "Category";
 		}
 
 		protected async override void OnAppearing()
 		{
 			base.OnAppearing();
+
 			//NavigationPage.SetHasNavigationBar(this, false);
 			try
 			{
