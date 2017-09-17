@@ -9,11 +9,14 @@
   </ContentPage.Padding>
   
   <StackLayout>
-    <ListView x:Name="RssView" ItemsSource="{Binding}" IsPullToRefreshEnabled="True"
-              Refreshing="RssView_Refreshing"
-              IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-
-              ItemTapped="RssView_ItemTapped" ListView.RowHeight="100">
+    <ListView 
+            VerticalOptions="StartAndExpand"
+            x:Name="RssView" 
+            ItemsSource="{Binding}"
+            IsPullToRefreshEnabled="True"
+            Refreshing="RssView_Refreshing"
+            IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+            ItemTapped="RssView_ItemTapped" ListView.RowHeight="100">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>

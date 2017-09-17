@@ -21,8 +21,4 @@
       </ListView.ItemTemplate>
     </ListView>
   </StackLayout>
-
-  <ContentPage.ToolbarItems>
-    <ToolbarItem Name="RefreshButton" Clicked="RefreshButton_Clicked" Text="Refresh" Order="Secondary" Priority="0"/>
-  </ContentPage.ToolbarItems>
 </ContentPage>

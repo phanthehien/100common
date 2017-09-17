@@ -5,7 +5,7 @@ namespace OneHundredCommonThings.Model
 {
 	public abstract class BaseModel
 	{
-		[JsonProperty("id")]
+        [JsonIgnore]
 		public long Id { get; set; }
 	}
 

@@ -18,9 +18,7 @@ namespace OneHundredCommonThings.Screen
 
 		protected async override void OnAppearing()
 		{
-			base.OnAppearing();
-            NavigationPage.SetHasNavigationBar(this, false);
-
+            base.OnAppearing();
 			try
 			{
 				await this.englishServiceVM.PopulateDataAsync(true);

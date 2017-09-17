@@ -20,7 +20,7 @@ namespace OneHundredCommonThings.Screen
 		protected async override void OnAppearing()
 		{
 			base.OnAppearing();
-			NavigationPage.SetHasNavigationBar(this, false);
+			//NavigationPage.SetHasNavigationBar(this, false);
 			try
 			{
 				await this.categoryVM.PopulateDataAsync(true);
