@@ -105,7 +105,7 @@ namespace OneHundredCommonThings.Screen
                 else
                 {
                     string url = string.Format("http://localhost:5000/api/content/{0}", topic.Children);
-					await Navigation.PushAsync(new EnglishScreen(url));
+					await Navigation.PushAsync(new ContentScreen(url));
                 }
             }
 		}

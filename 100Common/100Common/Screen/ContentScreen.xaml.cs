@@ -6,11 +6,11 @@ using Xamarin.Forms;
 
 namespace OneHundredCommonThings.Screen
 {
-    public partial class EnglishScreen : ContentPage
+    public partial class ContentScreen : ContentPage
     {
-        private EnglishViewModel englishServiceVM;
+        private ContentViewModel englishServiceVM;
 
-		public EnglishScreen(string url = null)
+		public ContentScreen(string url = null)
 		{
 			InitializeComponent();
             ServiceUrl = url;
@@ -26,7 +26,7 @@ namespace OneHundredCommonThings.Screen
 		public static readonly BindableProperty ServiceUrlProperty = BindableProperty.Create(
 														 propertyName: "ServiceUrl",
 														 returnType: typeof(string),
-														 declaringType: typeof(EnglishScreen),
+														 declaringType: typeof(ContentScreen),
 														 defaultValue: null,
 														 defaultBindingMode: BindingMode.TwoWay,
 														 propertyChanged: serviceUrlPropertyChanged);
@@ -35,7 +35,7 @@ namespace OneHundredCommonThings.Screen
         {
 			try
 			{
-                this.englishServiceVM = new EnglishViewModel(ServiceUrl);
+                this.englishServiceVM = new ContentViewModel(ServiceUrl);
 				await this.englishServiceVM.PopulateDataAsync(true);
 				this.BindingContext = this.englishServiceVM.ModelCollection;
 			}
@@ -104,7 +104,7 @@ namespace OneHundredCommonThings.Screen
 
 		private static async void serviceUrlPropertyChanged(BindableObject bindable, object oldValue, object newValue)
 		{
-            var control = (EnglishScreen)bindable;
+            var control = (ContentScreen)bindable;
             control.ServiceUrl = newValue.ToString();
 			await control.LoadControl();
 		}

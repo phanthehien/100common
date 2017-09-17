@@ -49,13 +49,13 @@
       <DependentUpon>WebContentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Service\BaseDataService.cs" />
-    <Compile Include="Screen\EnglishScreen.xaml.cs">
-      <DependentUpon>EnglishScreen.xaml</DependentUpon>
+    <Compile Include="Screen\ContentScreen.xaml.cs">
+      <DependentUpon>ContentScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\EnglishViewModel.cs" />
+    <Compile Include="ViewModel\ContentViewModel.cs" />
     <Compile Include="Model\AppData.cs" />
     <Compile Include="ViewModel\BaseServiceVM.cs" />
-    <Compile Include="Service\EnglishDataService.cs" />
+    <Compile Include="Service\ContentDataService.cs" />
     <Compile Include="Service\CategoryDataService.cs" />
     <Compile Include="ViewModel\CategoryViewModel.cs" />
     <Compile Include="Screen\CategoryScreen.xaml.cs">
@@ -79,7 +79,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screen\EnglishScreen.xaml">
+    <EmbeddedResource Include="Screen\ContentScreen.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Screen\CategoryScreen.xaml">

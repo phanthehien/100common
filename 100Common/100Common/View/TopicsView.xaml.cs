@@ -82,7 +82,7 @@ namespace OneHundredCommonThings.View
 					boxViewTap.Command = new Command(() => {
 						var navigation = Application.Current.MainPage.Navigation;
                         string url = string.Format("http://localhost:5000/api/content/{0}", children);
-						navigation.PushAsync(new EnglishScreen(url));
+						navigation.PushAsync(new ContentScreen(url));
 					});
                     boxView.GestureRecognizers.Add(boxViewTap);
                     scrollableContent.Children.Add(boxView);
