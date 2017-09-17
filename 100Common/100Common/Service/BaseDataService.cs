@@ -34,7 +34,7 @@ namespace OneHundredCommonThings
 			database = DependencyService.Get<IDatabaseConnection>().DbConnection();
 			database.CreateTable<T>();
         }
-
+        
         public async Task<IEnumerable<T>> PopulateDataOnlineAsync() {
 			var collection = await QueryAppData(token);
 			// Drop and recreate

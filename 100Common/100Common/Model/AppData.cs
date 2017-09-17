@@ -11,8 +11,8 @@ namespace OneHundredCommonThings.Model
 
 	public partial class AppData
 	{
-		[JsonProperty("commonEnglishSentence")]
-		public CommonEnglishSentence[] CommonEnglishSentence { get; set; }
+		[JsonProperty("content")]
+		public Content[] Content { get; set; }
 
 		[JsonProperty("category")]
 		public Category[] Category { get; set; }
@@ -21,7 +21,7 @@ namespace OneHundredCommonThings.Model
 		public Topic[] Topic { get; set; }
 	}
 
-    public partial class CommonEnglishSentence : BaseModel
+    public partial class Content : BaseModel
 	{
 		[JsonProperty("sentence")]
 		public string Sentence { get; set; }
@@ -31,6 +31,12 @@ namespace OneHundredCommonThings.Model
 
 		[JsonProperty("sentenceId")]
 		public long SentenceId { get; set; }
+
+		[JsonProperty("children")]
+		public string Children { get; set; }
+
+		[JsonProperty("link")]
+		public string Link { get; set; }
 	}
 
 	public partial class Category : BaseModel
@@ -43,6 +49,9 @@ namespace OneHundredCommonThings.Model
 
 		[JsonProperty("description")]
 		public string Description { get; set; }
+
+		[JsonProperty("children")]
+		public string Children { get; set; }
 	}
 
     public partial class Topic : BaseModel
@@ -58,6 +67,9 @@ namespace OneHundredCommonThings.Model
 
 		[JsonProperty("link")]
 		public string Link { get; set; }
+
+		[JsonProperty("children")]
+		public string Children { get; set; }
 	}
 
 	public partial class AppData

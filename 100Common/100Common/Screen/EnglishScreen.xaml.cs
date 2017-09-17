@@ -10,18 +10,32 @@ namespace OneHundredCommonThings.Screen
     {
         private EnglishViewModel englishServiceVM;
 
-		public EnglishScreen()
+		public EnglishScreen(string url = null)
 		{
 			InitializeComponent();
-			this.englishServiceVM = new EnglishViewModel();
+            ServiceUrl = url;
             Title = "Detail";
 		}
 
-		protected async override void OnAppearing()
+		public string ServiceUrl
 		{
-            base.OnAppearing();
+			get { return base.GetValue(ServiceUrlProperty).ToString(); }
+			set { base.SetValue(ServiceUrlProperty, value); }
+		}
+
+		public static readonly BindableProperty ServiceUrlProperty = BindableProperty.Create(
+														 propertyName: "ServiceUrl",
+														 returnType: typeof(string),
+														 declaringType: typeof(EnglishScreen),
+														 defaultValue: null,
+														 defaultBindingMode: BindingMode.TwoWay,
+														 propertyChanged: serviceUrlPropertyChanged);
+
+        public async Task LoadControl() 
+        {
 			try
 			{
+                this.englishServiceVM = new EnglishViewModel(ServiceUrl);
 				await this.englishServiceVM.PopulateDataAsync(true);
 				this.BindingContext = this.englishServiceVM.ModelCollection;
 			}
@@ -38,6 +52,11 @@ namespace OneHundredCommonThings.Screen
 			finally
 			{
 			}
+        }
+		protected override void OnAppearing()
+		{
+            base.OnAppearing();
+            LoadControl();	
 		}
 
 		private async Task LoadDataAsync()
@@ -77,8 +96,17 @@ namespace OneHundredCommonThings.Screen
 		{
 			var selected = e.Item as Item;
 
-			if (selected != null)
-				await Navigation.PushAsync(new WebContentPage(selected.Link));
+            if (selected != null)
+            {
+                await Navigation.PushAsync(new WebContentPage(selected.Link));
+            }
+		}
+
+		private static async void serviceUrlPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+		{
+            var control = (EnglishScreen)bindable;
+            control.ServiceUrl = newValue.ToString();
+			await control.LoadControl();
 		}
     }
 }

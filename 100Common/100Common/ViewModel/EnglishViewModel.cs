@@ -3,9 +3,9 @@ using OneHundredCommonThings.Service;
 
 namespace OneHundredCommonThings.ViewModel
 {
-    public class EnglishViewModel : BaseServiceVM<CommonEnglishSentence>
+    public class EnglishViewModel : BaseServiceVM<Content>
 	{
-        public EnglishViewModel() : base(new EnglishDataService()) {
+        public EnglishViewModel(string serviceUrl = null) : base(new EnglishDataService(serviceUrl)) {
             
         }
 	}

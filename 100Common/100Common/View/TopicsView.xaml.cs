@@ -45,40 +45,49 @@ namespace OneHundredCommonThings.View
                 HorizontalOptions = LayoutOptions.StartAndExpand
 			};
 
-			foreach (var topic in this.topicVM.ModelCollection)
-			{
-				var label = new Label() { 
-                    BackgroundColor = Color.Transparent,
-                    VerticalOptions = LayoutOptions.CenterAndExpand,
-                    HorizontalOptions = LayoutOptions.CenterAndExpand,
-                    LineBreakMode = LineBreakMode.WordWrap,
-                };
-                label.Text = topic.Description;
-                var boxView = new RelativeLayout()
+            if (this.topicVM.ModelCollection != null)
+            {
+                foreach (var topic in this.topicVM.ModelCollection)
                 {
-                    BackgroundColor=Color.Gray,
-                    WidthRequest = 120,
-                    HeightRequest = 120,
-					VerticalOptions = LayoutOptions.CenterAndExpand,
-					HorizontalOptions = LayoutOptions.CenterAndExpand,
-                };
+                    var label = new Label()
+                    {
+                        BackgroundColor = Color.Transparent,
+                        VerticalOptions = LayoutOptions.CenterAndExpand,
+                        HorizontalOptions = LayoutOptions.CenterAndExpand,
+                        LineBreakMode = LineBreakMode.WordWrap,
+                    };
+                    label.Text = topic.Description;
+                    var boxView = new RelativeLayout()
+                    {
+                        BackgroundColor = Color.Gray,
+                        WidthRequest = 120,
+                        HeightRequest = 120,
+                        VerticalOptions = LayoutOptions.CenterAndExpand,
+                        HorizontalOptions = LayoutOptions.CenterAndExpand,
+                    };
 
-                boxView.Children.Add(
-                    label, 
-                    xConstraint: Constraint.RelativeToParent((parent) =>
-                    {
-                        return ((parent.Width - label.Width) / 2);
-                    }),
-                    yConstraint: Constraint.RelativeToParent((parent) =>
-                    {
-                        return ((parent.Height - label.Height) / 2);
-                    })
-                );
-                var boxViewTap = new TapGestureRecognizer();
-                boxViewTap.Command = new Command(item_Tap);
-                boxView.GestureRecognizers.Add(boxViewTap);
-                scrollableContent.Children.Add(boxView);
-			}
+                    boxView.Children.Add(
+                        label,
+                        xConstraint: Constraint.RelativeToParent((parent) =>
+                        {
+                            return ((parent.Width - label.Width) / 2);
+                        }),
+                        yConstraint: Constraint.RelativeToParent((parent) =>
+                        {
+                            return ((parent.Height - label.Height) / 2);
+                        })
+                    );
+                    var boxViewTap = new TapGestureRecognizer();
+                    string children = topic.Children;
+					boxViewTap.Command = new Command(() => {
+						var navigation = Application.Current.MainPage.Navigation;
+                        string url = string.Format("http://localhost:5000/api/content/{0}", children);
+						navigation.PushAsync(new EnglishScreen(url));
+					});
+                    boxView.GestureRecognizers.Add(boxViewTap);
+                    scrollableContent.Children.Add(boxView);
+                }
+            }
 
 			this.Content = new ScrollView()
 			{
@@ -86,11 +95,6 @@ namespace OneHundredCommonThings.View
 				Orientation = ScrollOrientation.Horizontal,
 				Content = scrollableContent,
 			};
-		}
-
-        private void item_Tap() {
-            var navigation = Application.Current.MainPage.Navigation;
-            navigation.PushAsync(new EnglishScreen());
         }
 
 		private static async void topicUrlPropertyChanged(BindableObject bindable, object oldValue, object newValue)

@@ -3,10 +3,10 @@ using OneHundredCommonThings.Model;
 
 namespace OneHundredCommonThings.Service
 {
-    public class EnglishDataService : BaseDataService<CommonEnglishSentence>
+    public class EnglishDataService : BaseDataService<Content>
     {
-        public EnglishDataService() 
-            : base("https://onehundredcommon.herokuapp.com/api/english", "CommonEnglishSentence")
+        public EnglishDataService(string serviceUrl) 
+            : base(serviceUrl ?? "https://onehundredcommon.herokuapp.com/api/english", "Content")
         {
         }
     }

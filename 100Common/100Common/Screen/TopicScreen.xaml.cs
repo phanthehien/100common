@@ -11,18 +11,31 @@ namespace OneHundredCommonThings.Screen
     {
         private TopicViewModel topicVM;
 
-		public TopicScreen()
+		public TopicScreen(string url = null)
 		{
 			InitializeComponent();
-            this.topicVM = new TopicViewModel();
+            ServiceUrl = url;
 			Title = "Topic";
 		}
 
-		protected async override void OnAppearing()
+		public string ServiceUrl
 		{
-            base.OnAppearing();
+			get { return base.GetValue(ServiceUrlProperty).ToString(); }
+			set { base.SetValue(ServiceUrlProperty, value); }
+		}
+
+		public static readonly BindableProperty ServiceUrlProperty = BindableProperty.Create(
+														 propertyName: "ServiceUrl",
+														 returnType: typeof(string),
+														 declaringType: typeof(TopicScreen),
+														 defaultValue: null,
+														 defaultBindingMode: BindingMode.TwoWay,
+														 propertyChanged: serviceUrlPropertyChanged);
+
+        public async Task LoadControl() {
 			try
 			{
+                this.topicVM = new TopicViewModel(ServiceUrl);
 				await this.topicVM.PopulateDataAsync(true);
 				this.BindingContext = this.topicVM.ModelCollection;
 			}
@@ -39,6 +52,11 @@ namespace OneHundredCommonThings.Screen
 			finally
 			{
 			}
+        }
+		protected override void OnAppearing()
+		{
+            base.OnAppearing();
+            LoadControl();
 		}
 
 		private async Task LoadDataAsync()
@@ -86,9 +104,17 @@ namespace OneHundredCommonThings.Screen
                 }
                 else
                 {
-                    await Navigation.PushAsync(new EnglishScreen());
+                    string url = string.Format("http://localhost:5000/api/content/{0}", topic.Children);
+					await Navigation.PushAsync(new EnglishScreen(url));
                 }
             }
+		}
+
+		private static async void serviceUrlPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+		{
+            var control = (TopicScreen)bindable;
+			control.ServiceUrl = newValue.ToString();
+			await control.LoadControl();
 		}
     }
 }

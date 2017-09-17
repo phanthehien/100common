@@ -6,7 +6,7 @@ namespace OneHundredCommonThings.Service
     public class CategoryDataService : BaseDataService<Category>
     {
         public CategoryDataService() 
-            : base("https://onehundredcommon.herokuapp.com/api/category", "Category")
+            : base("http://localhost:5000/api/category", "Category")
         {
         }
     }

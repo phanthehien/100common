@@ -24,7 +24,7 @@
           <ViewCell>
               <StackLayout Padding="5" BackgroundColor="Silver">
                 <Label Text="{Binding Description, StringFormat= '{0}'}" FontAttributes="Bold" HeightRequest="25" />
-                <view:TopicsView TopicUrl="https://onehundredcommon.herokuapp.com/api/topic"/>
+                <view:TopicsView TopicUrl="{Binding Children, StringFormat= 'http://localhost:5000/api/topic/{0}'}" />
               </StackLayout>
           </ViewCell>
         </DataTemplate>

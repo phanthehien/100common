@@ -83,7 +83,8 @@ namespace OneHundredCommonThings.Screen
 
             if (selected != null)
             {
-                await Navigation.PushAsync(new TopicScreen());
+                string url = string.Format("{0}", selected.Children);
+                await Navigation.PushAsync(new TopicScreen(url));
             }
 		}
     }
