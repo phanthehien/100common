@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using OneHundredCommonThings.ViewModel;
+using OneHundredCommonThings.Model;
 using Xamarin.Forms;
 
 namespace OneHundredCommonThings.Screen
@@ -75,10 +76,19 @@ namespace OneHundredCommonThings.Screen
 
 		private async void RssView_ItemTapped(object sender, ItemTappedEventArgs e)
 		{
-			var selected = e.Item as Item;
+			var topic = e.Item as Topic;
 
-			if (selected != null)
-				await Navigation.PushAsync(new WebContentPage(selected.Link));
+            if (topic != null)
+            {
+                if (topic.Link != null) 
+                {
+                    await Navigation.PushAsync(new WebContentPage(topic.Link));
+                }
+                else
+                {
+                    await Navigation.PushAsync(new EnglishScreen());
+                }
+            }
 		}
     }
 }

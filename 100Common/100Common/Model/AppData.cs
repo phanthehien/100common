@@ -55,6 +55,9 @@ namespace OneHundredCommonThings.Model
 
 		[JsonProperty("topicId")]
 		public long TopicId { get; set; }
+
+		[JsonProperty("link")]
+		public string Link { get; set; }
 	}
 
 	public partial class AppData
