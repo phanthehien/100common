@@ -6,6 +6,7 @@ using OneHundredCommonThings.Model;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using OneHundredCommonThings.Screen;
 
 namespace OneHundredCommonThings.View
 {
@@ -73,6 +74,9 @@ namespace OneHundredCommonThings.View
                         return ((parent.Height - label.Height) / 2);
                     })
                 );
+                var boxViewTap = new TapGestureRecognizer();
+                boxViewTap.Command = new Command(item_Tap);
+                boxView.GestureRecognizers.Add(boxViewTap);
                 scrollableContent.Children.Add(boxView);
 			}
 
@@ -83,6 +87,11 @@ namespace OneHundredCommonThings.View
 				Content = scrollableContent,
 			};
 		}
+
+        private void item_Tap() {
+            var navigation = Application.Current.MainPage.Navigation;
+            navigation.PushAsync(new EnglishScreen());
+        }
 
 		private static async void topicUrlPropertyChanged(BindableObject bindable, object oldValue, object newValue)
 		{
