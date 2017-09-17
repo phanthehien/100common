@@ -46,6 +46,8 @@ namespace OneHundredCommonThings
 
         public async Task<IEnumerable<T>> PopulateDataOfflineAsync()
 		{
+            //TODO: remove this code
+            return null;
 			// If already any items in the table, no need of loading from Internet
 			if (database.Table<T>().Any())
 			{
@@ -57,13 +59,16 @@ namespace OneHundredCommonThings
 				// If not connected, raise an error
 				if (!App.IsConnected) throw new InvalidOperationException();
 				var collection = await QueryAppData(token);
-				SaveAllTs(collection);
+				//SaveAllTs(collection);
                 return collection;
 			}
 		}
 
         public void SaveAllTs(IEnumerable<T> Ts)
 		{
+            //TODO: remove this code
+            return;
+
 			lock (collisionLock)
 			{
 				// In the database, save or update each item in the collection
@@ -72,11 +77,11 @@ namespace OneHundredCommonThings
 					if (feedT.Id != 0)
 					{
                         //TODO: so far doesn't need to update
-                        //database.Update(feedT);
+                        database.Update(feedT);
 					}
 					else
 					{
-                        //database.Insert(feedT);
+                        database.Insert(feedT);
 					}
 				}
 			}

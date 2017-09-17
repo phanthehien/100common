@@ -81,7 +81,7 @@ namespace OneHundredCommonThings.View
                     string children = topic.Children;
 					boxViewTap.Command = new Command(() => {
 						var navigation = Application.Current.MainPage.Navigation;
-                        string url = string.Format("http://localhost:5000/api/content/{0}", children);
+                        string url = string.Format("https://onehundredcommon.herokuapp.com/api/content/{0}", children);
 						navigation.PushAsync(new ContentScreen(url));
 					});
                     boxView.GestureRecognizers.Add(boxViewTap);

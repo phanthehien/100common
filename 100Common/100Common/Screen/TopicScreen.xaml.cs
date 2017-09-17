@@ -104,7 +104,7 @@ namespace OneHundredCommonThings.Screen
                 }
                 else
                 {
-                    string url = string.Format("http://localhost:5000/api/content/{0}", topic.Children);
+                    string url = string.Format("https://onehundredcommon.herokuapp.com/api/content/{0}", topic.Children);
 					await Navigation.PushAsync(new ContentScreen(url));
                 }
             }
