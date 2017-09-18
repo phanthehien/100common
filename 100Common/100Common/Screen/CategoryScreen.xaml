@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
@@ -22,9 +22,13 @@
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-              <StackLayout Padding="5" BackgroundColor="Silver">
-                <Label Text="{Binding Description, StringFormat= '{0}'}" FontAttributes="Bold" HeightRequest="25" />
-                <view:TopicsView TopicUrl="{Binding Children, StringFormat= 'https://onehundredcommon.herokuapp.com/api/topic/{0}'}" />
+              <StackLayout Padding="5" BackgroundColor="#69793F">
+                <Label Text="{Binding Description, StringFormat= '{0}'}"
+                            TextColor="White"
+                            FontAttributes="Bold" 
+                            HeightRequest="25" />
+                <view:TopicsView 
+                            TopicUrl="{Binding Children, StringFormat= 'https://onehundredcommon.herokuapp.com/api/topic/{0}'}" />
               </StackLayout>
           </ViewCell>
         </DataTemplate>

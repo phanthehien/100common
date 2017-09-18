@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using OneHundredCommonThings.Screen;
+using OneHundredCommonThing.Constants;
 
 namespace OneHundredCommonThings.View
 {
@@ -51,15 +52,17 @@ namespace OneHundredCommonThings.View
                 {
                     var label = new Label()
                     {
+                        TextColor = Colors.TextColor,
                         BackgroundColor = Color.Transparent,
-                        VerticalOptions = LayoutOptions.CenterAndExpand,
-                        HorizontalOptions = LayoutOptions.CenterAndExpand,
+                        VerticalOptions = LayoutOptions.Center,
+                        HorizontalOptions = LayoutOptions.Center,
                         LineBreakMode = LineBreakMode.WordWrap,
+                        HorizontalTextAlignment= TextAlignment.Center
                     };
                     label.Text = topic.Description;
                     var boxView = new RelativeLayout()
                     {
-                        BackgroundColor = Color.Gray,
+                        BackgroundColor = Colors.BoxColor,
                         WidthRequest = 120,
                         HeightRequest = 120,
                         VerticalOptions = LayoutOptions.CenterAndExpand,
@@ -91,6 +94,8 @@ namespace OneHundredCommonThings.View
 
 			this.Content = new ScrollView()
 			{
+                Padding = new Thickness(5, 5, 5, 5),
+                BackgroundColor= Colors.PaddingColor,
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				Orientation = ScrollOrientation.Horizontal,
 				Content = scrollableContent,
