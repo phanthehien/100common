@@ -10,6 +10,7 @@
   
   <StackLayout>
     <ListView 
+            BackgroundColor="#B5C689"
             VerticalOptions="StartAndExpand"
             SeparatorVisibility="None"
             x:Name="RssView" 
@@ -22,7 +23,7 @@
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-              <StackLayout Padding="5" BackgroundColor="#69793F">
+              <StackLayout Padding="5">
                 <Label Text="{Binding Description, StringFormat= '{0}'}"
                             TextColor="White"
                             FontAttributes="Bold" 
