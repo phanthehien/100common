@@ -1,20 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:OneHundredCommonThings"
              x:Class="OneHundredCommonThings.Screen.ContentScreen">
   <StackLayout>
-    <ListView x:Name="RssView" ItemsSource="{Binding}" IsPullToRefreshEnabled="True"
-              Refreshing="RssView_Refreshing"
-              IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-              ItemTapped="RssView_ItemTapped" ListView.RowHeight="100">
+    <ListView x:Name="RssView" 
+                BackgroundColor="#B5C689"
+                ItemsSource="{Binding}"     
+                IsPullToRefreshEnabled="True"
+                Refreshing="RssView_Refreshing"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                ItemTapped="RssView_ItemTapped" 
+                HasUnevenRows="true">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
               <StackLayout Padding="5">
-                <Label Text="{Binding SentenceId}" />
-                <Label Text="{Binding Sentence}" />
-                <Label Text="{Binding Meaning}"/>
+                <Label Text="{Binding SentenceId, StringFormat='{0}. '}" FontSize="8" TextColor="White" />
+                <Label Text="{Binding Sentence}" FontSize="13" Margin="10, 0, 0, 0" />
+                <Label Text="{Binding Meaning}" FontSize="10" FontAttributes="Italic" Margin="10, 0, 0, 0" />
               </StackLayout>
           </ViewCell>
         </DataTemplate>
