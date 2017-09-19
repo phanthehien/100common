@@ -23,11 +23,13 @@
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-              <StackLayout Padding="5">
-                <Label Text="{Binding Description, StringFormat= '{0}'}"
-                            TextColor="White"
-                            FontAttributes="Bold" 
-                            HeightRequest="25" />
+              <StackLayout>
+                <Label 
+                                Margin="5, 5, 0, 0"
+                                Text="{Binding Description, StringFormat= '{0}'}"
+                                TextColor="White"
+                                FontAttributes="Bold" 
+                                HeightRequest="25" />
                 <view:TopicsView 
                             TopicUrl="{Binding Children, StringFormat= 'https://onehundredcommon.herokuapp.com/api/topic/{0}'}" />
               </StackLayout>

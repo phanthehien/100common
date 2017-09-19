@@ -46,7 +46,10 @@ namespace OneHundredCommonThings.View
                 HorizontalOptions = LayoutOptions.StartAndExpand
 			};
 
-            if (this.topicVM.ModelCollection != null)
+            var padding = new Thickness(5, 5, 0, 5);
+
+            if (this.topicVM.ModelCollection != null && 
+                this.topicVM.ModelCollection.Count >= 0)
             {
                 foreach (var topic in this.topicVM.ModelCollection)
                 {
@@ -91,10 +94,14 @@ namespace OneHundredCommonThings.View
                     scrollableContent.Children.Add(boxView);
                 }
             }
+            else {
+                padding = new Thickness(0);
+            }
+
 
 			this.Content = new ScrollView()
 			{
-                Padding = new Thickness(5, 5, 5, 5),
+                Padding = padding,
                 BackgroundColor= Colors.PaddingColor,
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				Orientation = ScrollOrientation.Horizontal,
